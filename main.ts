@@ -1,13 +1,20 @@
 input.onButtonPressed(Button.A, function () {
-    radio.sendString("Pil V")
+    sendtekst = "Pil v"
 })
 input.onGesture(Gesture.Shake, function () {
-    radio.sendString("Stop")
+    sendtekst = "Stop"
 })
 input.onButtonPressed(Button.AB, function () {
-    radio.sendString("Annet")
+    sendtekst = "Annet"
 })
 input.onButtonPressed(Button.B, function () {
-    radio.sendString("Pil H")
+    sendtekst = "Pil H"
 })
+let sendtekst = ""
 radio.setGroup(1)
+radio.setTransmitPower(7)
+sendtekst = "Stop"
+basic.showIcon(IconNames.Happy)
+basic.forever(function () {
+    radio.sendString(sendtekst)
+})
